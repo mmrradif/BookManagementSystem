@@ -1,0 +1,56 @@
+﻿@model PracticalExam.Database_Models.Book
+
+@{
+    ViewData["Title"] = "DeleteView";
+}
+
+
+<div class="container">
+
+    <div class="row m-4">
+
+        <div class="col-8 m-auto p-4 shadow rounded">
+
+            <div class="p-3 mb-4 shadow rounded">
+                <h3 class="text-center text-danger p-3">Are you sure?</h3>
+                <h4 class="text-center text-danger p-3"> You want to delete this Record?</h4>
+            </div>
+
+            <div m-5>
+                <div>
+                    <h6>Date : @Html.DisplayFor(model => model.Date)</h6>
+                </div>
+
+                <div>
+                    <h6>Name : @Html.DisplayFor(model => model.BookName)</h6>
+                </div>
+
+                <div>
+                    <h6>Author : @Html.DisplayFor(model => model.Author)</h6>
+                </div>
+
+                <div>
+                    <h6>Quantity : @Html.DisplayFor(model => model.Quantity)</h6>
+                </div>
+            </div>
+
+            <form asp-action="Delete">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group d-flex m-4">
+
+                    <input type="submit" value="Yes, Delete" class="btn btn-danger shadow m-1" />
+
+                    <a class="btn btn-primary shadow m-1" asp-action="Index">No, Back</a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>

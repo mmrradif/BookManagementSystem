@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div id="myAlert" class="alert @TempData["MessageType"] alert-dismissible fade show" role="alert">
+        <div class="row align-items-center">
+            <div class="col-10">
+                @TempData["Message"]
+            </div>
+            <div class="col-2 text-right">
+                <button type="button" class="close btn btn-danger" data-dismiss="alert" aria-label="Close" onclick="closeAlert()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script>
+    function closeAlert() {
+        document.getElementById("myAlert").remove();
+    }
+
+    // Auto-close the message after 2 seconds if the close button is not clicked
+    setTimeout(function () {
+        var alertDiv = document.getElementById("myAlert");
+        if (alertDiv != null) {
+            alertDiv.classList.remove(); // Remove "show" class to hide the alert
+            setTimeout(function () {
+                alertDiv.remove(); // Remove the alert after another 2 seconds
+            }, 3000);
+        }
+    });
+</script>
+
+
+<div class="row">
+    <div class="col-12">
+        <form method="post">
+
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label class="control-label">From Date</label>
+                        <input class="form-control" type="date" name="startDate" />
+                    </div>
+
+                    <div class="form-group offset-4 col-4">
+                        <label class="control-label">To Date</label>
+                        <input class="form-control" type="date" name="endDate" />
+                    </div>
+                </div>
+
+                <div>
+               
+                <div class="btn-group offset-4 col-4 mt-4 d-flex justify-content-center">
+
+                    <input type="submit" asp-action="GenerateReportPdf" value="Download PDF" style="background-color:rgb(0, 153, 204)" class="btn btn-primary btn-group-justified" />
+
+                    <input type="submit" asp-action="DownloadExcel" value="Download Excel" style="background-color:rgb(255, 133, 51)" class="btn btn-primary btn-group-justified" />
+
+
+                    <button type="submit" style="background-color:rgb(0, 153, 51)" class="btn btn-primary btn-group-justified" onclick="clearForm()">
+                        Refresh
+                    </button>
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+    function clearForm() {
+
+        var form = document.querySelector('form');
+
+
+        form.reset();
+    }
+</script>

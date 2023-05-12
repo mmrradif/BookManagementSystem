@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PracticalExam.Database_Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+
+    @if (ViewBag.UpdateMessage != null)
+    {
+        <div id="success-alert" class="alert alert-success">@ViewBag.UpdateMessage</div>
+        <script>
+            setTimeout(function () {
+                $('#success-alert').fadeOut('fast');
+            }, 1000);
+        </script>
+    }
+
+    @*----------------------------------*@
+
+    @if (TempData["DeleteMessage"] != null)
+    {
+        <div id="deleteMessage" class="alert alert-danger">@TempData["DeleteMessage"]</div>
+    }
+
+    <script>
+        setTimeout(function () {
+            $('#deleteMessage').fadeOut('fast');
+        }, 1000);
+    </script>
+
+    @*----------------------------------*@
+
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+            <a class="btn btn-success" style="background-color: rgb(0, 179, 0)" asp-action="Insert">Add Book</a>
+            <h6>Total Records(@Model.Count()) <span class="rounded-circle p-1 text-white" style="background-color: rgb(0, 82, 204)">@Model.Count()</span></h6>
+        </div>
+    </div>
+
+    <hr />
+
+
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Sl#</th>
+                <th>Date</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Quantity</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td width="20">
+                        @Html.DisplayFor(x=> item.Id)
+                    </td>
+
+                    <td width="180">
+                        @Html.DisplayFor(x=> item.Date)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(x=> item.BookName)
+                    </td>
+
+                    <td width="220">
+                        @Html.DisplayFor(x=> item.Author)
+                    </td>
+
+                    <td width="160">
+                        @Html.DisplayFor(x=> item.Quantity)
+                    </td>
+
+                    @*  <td width="160" class="text-center">
+                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Edit</a><a class="btn btn-danger" asp-action="DeleteView" asp-route-id="@item.Id">Delete</a>
+                </td>*@
+
+                    <td width="150" class="text-center">
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-primary btn-sm" style="background-color: rgb(0, 82, 204)" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+
+                            <a class="btn btn-danger btn-sm" style="background-color: rgba(255, 26, 26)" asp-action="DeleteView" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    </td>
+
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+
+

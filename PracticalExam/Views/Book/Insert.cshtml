@@ -1,0 +1,69 @@
+﻿@model PracticalExam.Database_Models.Book
+
+@{
+    ViewData["Title"] = "Insert";
+}
+
+
+<h2 class="text-center shadow p-3">Create A New Book</h2>
+
+
+<div class="row m-4">
+
+    <div class="col-md-8 m-auto p-4 shadow shadow">
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+
+            <script>
+                setTimeout(function () {
+                    $('.alert-success').fadeOut('fast');
+                }, 2000); // Delay for 2 seconds before removing the message
+            </script>
+        }
+
+
+
+
+
+        <form asp-action="Insert">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <h6>Date</h6>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h6>Book Name</h6>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h6>Author</h6>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h6>Quantity</h6>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group d-flex justify-content-between m-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-link" asp-action="Index">Back to List</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

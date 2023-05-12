@@ -1,0 +1,10 @@
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\bin\Debug\RDLC_Report.exe.config
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\bin\Debug\RDLC_Report.exe
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\bin\Debug\RDLC_Report.pdb
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.csproj.AssemblyReference.cache
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.csproj.SuggestedBindingRedirects.cache
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.Properties.Resources.resources
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.csproj.GenerateResource.cache
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.csproj.CoreCompileInputs.cache
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.exe
+E:\DeshUniversalProject\PracticalExamSolution\RDLC_Report\obj\Debug\RDLC_Report.pdb
